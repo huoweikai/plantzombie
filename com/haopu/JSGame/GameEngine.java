@@ -3715,34 +3715,42 @@ public class GameEngine {
 			time = 0;
 			// x=0;
 		}
-		if (time % (isJB==1?12:25) == 0) {
-			if ((JN1 < 62)&&MyGameCanvas.gameStatus==MyGameCanvas.GmStat_Playing) {
-				JN1++;
-			}
+	//	if (time % (isJB==1?12:25) == 0) {
+//			if ((JN1 < 62)&&MyGameCanvas.gameStatus==MyGameCanvas.GmStat_Playing) {
+//				JN1++;
+//			}
+	//	}
+		if (canvas.jiNengKaiQi[0] > 0)
+		{
+			JN1=62;
 		}
+		
 		if (canvas.jiNengKaiQi[1] > 0) {
-			if (time % (isJB==1?20:40) == 0) {
-				if ((JN2 < 62)&&MyGameCanvas.gameStatus==MyGameCanvas.GmStat_Playing) {
-					JN2++;
-				}
-			}
-
+			JN2=62;
+//			if (time % (isJB==1?20:40) == 0) {
+//				if ((JN2 < 62)&&MyGameCanvas.gameStatus==MyGameCanvas.GmStat_Playing) {
+//					JN2++;
+//				}
+//			}
 		}
 		if (canvas.jiNengKaiQi[2] > 0) {
-			if (time % (isJB==1?25:50) == 0) {
-				if ((JN3 < 62)&&MyGameCanvas.gameStatus==MyGameCanvas.GmStat_Playing) {
-					JN3++;
-				}
-			}
+			JN3=62;
+//			if (time % (isJB==1?25:50) == 0) {
+//				if ((JN3 < 62)&&MyGameCanvas.gameStatus==MyGameCanvas.GmStat_Playing) {
+//					JN3++;
+//				}
+//			}
 
 		}
 
 		// GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING6, cgCurIndex, y, clipX,
 		// clipY, clipW, clipH, anchor, trans, drawLevel, scaleX, scaleY)
 		// System.out.println("xxxxxxxxxxxxxx   : "+x);
-		if (gameRank != 99) {
-			GameDraw.add_Image(PAK_IMAGES.IMG_BUBING6, 10, 409, 0, 0, JN1, 20,
+			if (gameRank != 99) {
+				GameDraw.add_Image(PAK_IMAGES.IMG_BUBING6, 10, 409, 0, 0, JN1, 20,
 					Tools.TOP_LEFT, Tools.TRANS_NONE, 150);
+			
+			
 			if (JN1 > 61) {// 第一个以开启技能
 				GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING5, 10 + 30, 452,
 						0, 0, 61, 61, Tools.HCENTER_VCENTER, Tools.TRANS_NONE,
@@ -3751,15 +3759,18 @@ public class GameEngine {
 				GameDraw.add_ImageAlpha(PAK_IMAGES.IMG_FAGUANG, 10 + 30, 452,
 						Tools.HCENTER_VCENTER, Tools.TRANS_NONE, 149,
 						255 - canvas.shan2);// 发光框子
+				
+			
 			} else {
 
 				GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING5, 10 + 30, 452,
 						0, 0, 61, 61, Tools.HCENTER_VCENTER, Tools.TRANS_NONE,
 						150, 1f, 1f);
-
 			}
 			GameDraw.add_Image(PAK_IMAGES.IMG_BUBING6, 52 + 55, 409, 0, 0, JN2,
 					20, Tools.TOP_LEFT, Tools.TRANS_NONE, 150);
+			
+			
 			if (JN2 > 61) {
 				GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING5, 52 + 80, 452,
 						67, canvas.jiNengKaiQi[1] < 0 ? 66 : 0, 61, 61,
@@ -3775,6 +3786,8 @@ public class GameEngine {
 			}
 			GameDraw.add_Image(PAK_IMAGES.IMG_BUBING6, 143 + 55, 409, 0, 0,
 					JN3, 20, Tools.TOP_LEFT, Tools.TRANS_NONE, 150);
+			
+			
 			if (JN3 > 61) {
 				GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING5, 143 + 82, 452,
 						135, canvas.jiNengKaiQi[2] < 0 ? 66 : 0, 61, 61,
