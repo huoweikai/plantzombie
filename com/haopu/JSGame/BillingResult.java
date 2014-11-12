@@ -9,12 +9,13 @@ import cn.cmgame.billing.api.GameInterface;
 
 public class BillingResult {
 	public final static int Billing_正版激活 = 0;
-	public final static int Billing_技能冷却时间永久减半 = 1;
-	public final static int Billing_战地急救_10 = 2;
+	public final static int Billing_感恩回馈 = 1;
+	public final static int Billing_道具礼包 = 2;
 	public final static int Billing_南瓜大炮 = 3;
-	public final static int Billing_购买金币3W = 4;
+	public final static int Billing_购买金币8K = 4;
 	public final static int Billing_购买金币8W = 5;
-	 
+	
+
 
 	/**
 	 * 
@@ -58,12 +59,15 @@ public class BillingResult {
 		case Billing_正版激活:
 			MyGameCanvas.setST(MyGameCanvas.GmStat_Playing);
 			break;
-		case Billing_技能冷却时间永久减半:	
-			GameEngine.me.isJB=1;
+		case Billing_感恩回馈:	
+			//GameEngine.me.isJB=1;
+			GameEngine.me.addSkillNum(1,4);
 			MyGameCanvas.me.saveGame();
 			break;
-		case Billing_战地急救_10:
-			GameEngine.fuhuo+=10;
+		case Billing_道具礼包:
+			GameEngine.me.addSkillNum(0,15);
+			GameEngine.me.addSkillNum(1,15);
+			GameEngine.me.addSkillNum(2,10);
 			MyGameCanvas.me.saveGame();
 			break;
 		case Billing_南瓜大炮:
@@ -77,11 +81,11 @@ public class BillingResult {
 
 		}
 			break;
-		case Billing_购买金币3W:
-			GameEngine.usBs.iUsBsCuJinbi+=30000;
+		case Billing_购买金币8K://
+			GameEngine.usBs.iUsBsCuJinbi+=8000;
 			break;
-		case Billing_购买金币8W:
-			GameEngine.usBs.iUsBsCuJinbi+=80000;
+		case Billing_购买金币8W://赠1w
+			GameEngine.usBs.iUsBsCuJinbi+=90000;
 			break;
 		}
         GameEngine.canvas.saveGame();
@@ -99,21 +103,21 @@ public class BillingResult {
 			GameEngine.isSms=true;
         MyGameCanvas.setST(MyGameCanvas.GmStat_RankMap);
 			break;
-		case Billing_技能冷却时间永久减半:	
-			
-			break;
-		case Billing_战地急救_10:
-			
-			break;
-		case Billing_南瓜大炮:
-			
-			break;
-		case Billing_购买金币3W:
-			
-			break;
-		case Billing_购买金币8W:
-			
-			break;
+//		case Billing_技能冷却时间永久减半:	
+//			
+//			break;
+//		case Billing_战地急救_10:
+//			
+//			break;
+//		case Billing_南瓜大炮:
+//			
+//			break;
+//		case Billing_购买金币3W:
+//			
+//			break;
+//		case Billing_购买金币8W:
+//			
+//			break;
 
 		}
 	}

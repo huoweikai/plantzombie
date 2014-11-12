@@ -4047,8 +4047,8 @@ public class MyGameCanvas {
 			if (gameStatus == GmStat_YDSms) {
 //				MyActivity.billing.setBilling(GameBilling.Billing_技能冷却时间永久减半,
 //						false, true);
-				if(BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS){
-					mm.sendBillingMsg(BillingResult.Billing_技能冷却时间永久减半);
+				if(BillingResult.sms_RMS[BillingResult.Billing_感恩回馈]!=BillingResult.SMS_SUCCESS){
+					mm.sendBillingMsg(BillingResult.Billing_感恩回馈);
 				}else{
 					Toast.makeText(MyActivity.instance,"不能重复购买",Toast.LENGTH_LONG).show();
 				}
@@ -4061,7 +4061,7 @@ public class MyGameCanvas {
 			//setST(lastStatus);
 			//购买各种
 			if (gameStatus == GmStat_YDSms2) {
-				mm.sendBillingMsg(BillingResult.Billing_购买金币3W);
+				mm.sendBillingMsg(BillingResult.Billing_购买金币8K);
 			}
 			break;
 		case 2:
@@ -4104,18 +4104,18 @@ public class MyGameCanvas {
 			mm.sendBillingMsg(BillingResult.Billing_购买金币8W);
 			// }
 			break;
-		case 1: // 技能冷却时间减半
+		case 1: // 感恩回馈
 
-			if(BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS){
+			if(BillingResult.sms_RMS[BillingResult.Billing_感恩回馈]!=BillingResult.SMS_SUCCESS){
 //			SMS_dianxing.sendSMS(SMS_dianxing.Billing_技能冷却时间永久减半);
-			mm.sendBillingMsg(BillingResult.Billing_技能冷却时间永久减半);
+			mm.sendBillingMsg(BillingResult.Billing_感恩回馈);
 			}else{
 				Toast.makeText(MyActivity.instance,"不能重复购买",Toast.LENGTH_LONG).show();
 			}
 			break;
-		case 2:// 铁丝网加血
+		case 2://道具礼包
 
-			mm.sendBillingMsg(BillingResult.Billing_战地急救_10);
+			mm.sendBillingMsg(BillingResult.Billing_道具礼包);
 			break;
 		case 3:// 南瓜加农炮
 
@@ -4126,9 +4126,9 @@ public class MyGameCanvas {
 				Toast.makeText(MyActivity.instance,"不能重复购买",Toast.LENGTH_LONG).show();
 			}
 			break;
-		case 4:
+		case 4://3k金币
 //			SMS_dianxing.sendSMS(SMS_dianxing.Billing_购买金币3W);
-			mm.sendBillingMsg(BillingResult.Billing_购买金币3W);
+			mm.sendBillingMsg(BillingResult.Billing_购买金币8K);
 			break;
 		case 5:
 			setST(lastStatus);
@@ -5625,7 +5625,7 @@ public class MyGameCanvas {
 			// if(IsInRect(x,y,630,0,80,60)){//点击快进
 			if (IsInRect(x, y, 100, 420, 60, 75) && engine.JN2 < 55
 					&& engine.gameRank != 99
-					&& BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS) {
+					&& BillingResult.sms_RMS[BillingResult.Billing_感恩回馈]!=BillingResult.SMS_SUCCESS) {
 //				 MyActivity.billing.setBilling(GameBilling.Billing_技能冷却时间永久减半,
 //				 false, true);
 				//m_currentSelect=1;
@@ -5633,7 +5633,7 @@ public class MyGameCanvas {
 			}
 			if (IsInRect(x, y, 200, 420, 60, 75) && engine.JN3 < 55
 					&& engine.gameRank != 99
-					&& BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS) {
+					&& BillingResult.sms_RMS[BillingResult.Billing_感恩回馈]!=BillingResult.SMS_SUCCESS) {
 				
 //				MyActivity.billing.setBilling(GameBilling.Billing_技能冷却时间永久减半,
 //				 false, true);
@@ -6183,15 +6183,15 @@ public class MyGameCanvas {
 			break;
 		case 3:// 金币翻倍
 
-			if(BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS){
-				mm.sendBillingMsg(BillingResult.Billing_技能冷却时间永久减半);
+			if(BillingResult.sms_RMS[BillingResult.Billing_感恩回馈]!=BillingResult.SMS_SUCCESS){
+				mm.sendBillingMsg(BillingResult.Billing_感恩回馈);
 			}else{
 				Toast.makeText(MyActivity.instance,"不能重复购买",Toast.LENGTH_LONG).show();
 			}
 			// }
 			break;
 		case 4:// 南瓜
-				mm.sendBillingMsg(BillingResult.Billing_购买金币3W);
+				mm.sendBillingMsg(BillingResult.Billing_购买金币8K);
 			break;
 		case 5:
 				mm.sendBillingMsg(BillingResult.Billing_购买金币8W);
@@ -6219,7 +6219,7 @@ public class MyGameCanvas {
 					GameEngine.laoJiaHP = GameEngine.laoJiaHP_MAX;
 					setST(GmStat_Playing);
 				} else {
-					mm.sendBillingMsg(BillingResult.Billing_战地急救_10);			
+					mm.sendBillingMsg(BillingResult.Billing_道具礼包);			
 				}
 				break;
 			case 1:
@@ -6820,12 +6820,10 @@ public class MyGameCanvas {
 				}
 				if (IsInRect(iTouchDownX, iTouchDownY, 5, 420, 60, 75)
 						&& engine.JN1 < 50) {
-//					if(!GameBilling.isBilling(GameBilling.Billing_技能冷却时间永久减半)){
+//TODO: 这里是购买技能
+//					if(BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS){
 //						setST(GmStat_YDSms);
 //					}
-					if(BillingResult.sms_RMS[BillingResult.Billing_技能冷却时间永久减半]!=BillingResult.SMS_SUCCESS){
-						setST(GmStat_YDSms);
-					}
 				}
 				if (IsInRect(iTouchDownX, iTouchDownY, 5, 420, 60, 75)
 						&& engine.JN1 > 61) {// 点击技能1键滑屏

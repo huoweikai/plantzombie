@@ -1787,7 +1787,7 @@ public class GameEngine {
 			GameDraw.add_ImageScale(PAK_IMAGES.IMG_DJ6, 650-310, 45, Tools.BOTTOM_LEFT, Tools.TRANS_NONE, 1000,0.5f,0.5f);
 			GameDraw.add_String(""+roleTime, 650-270,40,Tools.BOTTOM_LEFT, 0xffffffff, 1000, 21);	
 //			GameDraw.add_String("指定怪："+roleNumber, 650,110,Tools.BOTTOM_LEFT, 0xffffffff, 1000, 21);	
-		}
+		}      
 		DrawBackground(MyGameCanvas.me.gmStatus);// 背景图
 		drawSkill();
 		// drawTowIcon();
@@ -3710,6 +3710,16 @@ public class GameEngine {
 	int JN2;
 	int JN3;
     int isJB=0;//计费点  是否技能减半
+    public void addSkillNum(int id,int num)
+    {
+    	canvas.jiNengKaiQi[id]+=num;
+    	canvas.saveGame();
+    }
+    public void useSkillNum(int id)
+    {
+    	canvas.jiNengKaiQi[id]--;
+    	canvas.saveGame();
+    }
 	public void drawSkill() {
 		if (time == 1600) {
 			time = 0;
@@ -3760,6 +3770,8 @@ public class GameEngine {
 						Tools.HCENTER_VCENTER, Tools.TRANS_NONE, 149,
 						255 - canvas.shan2);// 发光框子
 				
+				GameDraw.drawNumber(PAK_IMAGES.IMG_16, canvas.jiNengKaiQi[0], 10 + 30+10, 452, 20, 0,
+						Tools.TOP_LEFT, 270, 23, 0, true);
 			
 			} else {
 
@@ -3779,6 +3791,9 @@ public class GameEngine {
 				GameDraw.add_ImageAlpha(PAK_IMAGES.IMG_FAGUANG, 52 + 80, 452,
 						Tools.HCENTER_VCENTER, Tools.TRANS_NONE, 149,
 						255 - canvas.shan2);// 发光框子
+				
+				GameDraw.drawNumber(PAK_IMAGES.IMG_16, canvas.jiNengKaiQi[1], 52 + 80+10, 452, 20, 0,
+						Tools.TOP_LEFT, 270, 23, 0, true);
 			} else {
 				GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING5, 52 + 80, 452,
 						67, canvas.jiNengKaiQi[1] < 0 ? 66 : 0, 61, 61,
@@ -3796,6 +3811,9 @@ public class GameEngine {
 				GameDraw.add_ImageAlpha(PAK_IMAGES.IMG_FAGUANG, 143 + 82, 452,
 						Tools.HCENTER_VCENTER, Tools.TRANS_NONE, 149,
 						255 - canvas.shan2);// 发光框子
+				
+				GameDraw.drawNumber(PAK_IMAGES.IMG_16, canvas.jiNengKaiQi[2], 143 +82+10, 452, 20, 0,
+						Tools.TOP_LEFT, 270, 23, 0, true);
 			} else {
 				GameDraw.add_ImageScale(PAK_IMAGES.IMG_BUBING5, 143 + 82, 452,
 						135, canvas.jiNengKaiQi[2] < 0 ? 66 : 0, 61, 61,
